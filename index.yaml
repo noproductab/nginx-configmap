@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  nginx-configmap:
+  - apiVersion: v2
+    appVersion: "1.25"
+    created: "2025-06-29T19:37:43.732863592Z"
+    description: Simple NGINX deployment with ConfigMap-based HTML
+    digest: 24cdf59dc7dabef092006c099bdc3ad594aaf75bbddfc072612042d7b7eb1c30
+    name: nginx-configmap
+    type: application
+    urls:
+    - https://noproductab.github.io/nginx-configmap/nginx-configmap-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-06-29T19:37:43.732589738Z"
