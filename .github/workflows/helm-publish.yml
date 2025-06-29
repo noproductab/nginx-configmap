@@ -1,0 +1,48 @@
+name: Build and Publish Helm Chart
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'nginx-configmap/**'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # Needed to push to gh-pages branch
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.14.0
+
+      - name: Create Helm package
+        run: |
+          mkdir -p .deploy
+          helm package nginx-configmap --destination .deploy/
+
+      - name: Setup GitHub Pages branch
+        run: |
+          mv .deploy/*.tgz docs/
+
+      - name: Update Helm repository index
+        run: |
+          cd docs
+          helm repo index . --url https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          cd ..
+
+      - name: Publish to pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          user_name: GitHub Actions
+          user_email: github-actions@users.noreply.github.com
