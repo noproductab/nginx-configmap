@@ -12,16 +12,10 @@ spec:
       labels:
         app: app-{{ .Release.Name }}
     spec:
-      securityContext:
-        seccompProfile:
-          type: RuntimeDefault
       containers:
         - name: nginx
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          securityContext:
-            capabilities:
-              drop: ["ALL"]
           volumeMounts:
             - name: html
               mountPath: /usr/share/nginx/html/index.html
