@@ -13,7 +13,6 @@ spec:
         app: app-{{ .Release.Name }}
     spec:
       securityContext:
-        runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
       containers:
