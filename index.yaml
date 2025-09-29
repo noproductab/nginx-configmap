@@ -3,12 +3,12 @@ entries:
   nginx-configmap:
   - apiVersion: v2
     appVersion: "1.25"
-    created: "2025-09-29T12:10:56.373305645Z"
+    created: "2025-09-29T12:13:32.907752629Z"
     description: Simple NGINX deployment with ConfigMap-based HTML
-    digest: 9557caee8cb93a5c764f6d06951ebfe2b194a70f0acb57de190bfb1b797d99ef
+    digest: 5291dcfaf1fb3de5979ae94ae3a1288552dd95b29c8c864fb8d7de27a36f7003
     name: nginx-configmap
     type: application
     urls:
-    - https://noproductab.github.io/nginx-configmap/nginx-configmap-0.1.5.tgz
-    version: 0.1.5
-generated: "2025-09-29T12:10:56.37301401Z"
+    - https://noproductab.github.io/nginx-configmap/nginx-configmap-0.1.6.tgz
+    version: 0.1.6
+generated: "2025-09-29T12:13:32.907415519Z"
