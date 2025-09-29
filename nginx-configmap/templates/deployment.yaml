@@ -23,4 +23,4 @@ spec:
       volumes:
         - name: html
           configMap:
-            name: nginx-index
+            name: {{ .Release.Name }}-nginx-index
