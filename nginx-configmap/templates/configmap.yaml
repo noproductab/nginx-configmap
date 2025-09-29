@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-index
+  name: {{ .Release.Name }}-nginx-index
 data:
   index.html: |-
 {{ .Values.indexHtml | indent 4 }}
